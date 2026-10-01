@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://coral79.github.io/pami/"><b>[🌐 Project Page]</b></a>
-  <a href="https://coral79.github.io/pami/Files/paper.pdf"><b>[📄 Paper]</b></a>
+  <a href="https://arxiv.org/abs/2609.38466"><b>[📄 Paper]</b></a>
 </p>
 
 <p align="center">
@@ -14,7 +14,7 @@ This is the official repository for **PAMI**, a Part-Anchored Motion framework f
 ---
 
 ## 🚀 News
-- **[2026]** PAMI preprint released. Code and models are being prepared for release — stay tuned!
+- **[Sep 2026]** Our paper is now on [arXiv](https://arxiv.org/abs/2609.38466)! Code and models are being prepared for release — stay tuned!
 
 ## 📦 Release Progress
 - [ ] **Data Preparation**: scripts to convert InterAct into the part-anchored interaction representation.
@@ -128,7 +128,7 @@ If you find our work or code useful for your research, please consider citing:
 @article{li2026pami,
   title={{PAMI}: Part Anchored Motion for Text to Human-Object Interaction Generation},
   author={Li, Chuqiao and Xie, Xianghui and Cao, Yong and Geiger, Andreas and Pons-Moll, Gerard},
-  journal={arXiv preprint},
+  journal={arXiv preprint arXiv:2609.38466},
   year={2026}
 }
 ```
