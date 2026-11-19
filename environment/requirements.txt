@@ -1,0 +1,28 @@
+# PAMI model code (data preparation / training / sampling / refinement) -- the `pami` environment, Python 3.10.
+# Derived from the imports actually used by pami/ (see environment/README.md).
+torch==2.7.1            # pip install torch==2.7.1 torchvision==0.22.1 --index-url https://download.pytorch.org/whl/cu118
+                        # (RTX 50-series GPUs: .../whl/cu128 -- the cu118 build has no kernels for them)
+numpy==1.22.0
+scipy==1.11.4
+PyYAML==6.0.3
+tqdm
+# rendering / visualisation (pami/render_*.py, pami/refine/render_m3.py) -- optional
+trimesh==4.11.5
+pyrender==0.1.45
+pillow
+imageio==2.37.3
+matplotlib==3.7.5
+# experiment logging (train_*.py --wandb) -- optional
+wandb
+# body models: smplx reads body_models/smpl/SMPL_NEUTRAL.pkl (generate.py, training), whose pickle holds chumpy
+# arrays; human_body_prior does the SMPL-H / SMPL-X FK of data preparation and of refine.py. It is pinned because
+# its current master requires Python >= 3.11; this commit is the version the paper's data were built with.
+smplx==0.1.28
+chumpy==0.70            # install first with: pip install --no-build-isolation chumpy==0.70 (environment/README.md)
+human_body_prior @ git+https://github.com/nghorbani/human_body_prior@4c246d8a83ce16d3cff9c79dcf04d81fa440a6bc
+# data preparation (pami/data_prep): BPS object features, object surface normals (trimesh ray queries need rtree)
+bps_torch @ git+https://github.com/otaheri/bps_torch@00fcac3dffd294211d4ea0363eaf6c2ca4e068dc
+rtree==1.4.1
+# free-text prompts (generate.py --text) and prepare_data.py text_feats: OpenAI CLIP. Install it WITHOUT its
+# dependencies -- they are unpinned and would replace the torch build above:
+#   pip install ftfy regex && pip install --no-deps git+https://github.com/openai/CLIP

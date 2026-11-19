@@ -1,0 +1,15 @@
+# Additional packages for evaluate.py, installed into the same `pami` environment. They mirror LIGHT's requirements
+# (https://github.com/wzyabcas/LIGHT#installation) because the evaluator imports LIGHT's code.
+# pytorch3d and chamfer_distance are compiled from source against the installed torch BEFORE this file
+# (`pip install --no-build-isolation ...`, see environment/README.md).
+transformers==5.14.1
+tokenizers==0.22.2
+huggingface_hub==1.25.1
+pytorch-lightning==2.6.5
+torchmetrics==1.9.0
+omegaconf==2.3.1
+einops==0.8.2
+requests
+idna
+certifi
+urllib3

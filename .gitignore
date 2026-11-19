@@ -1,3 +1,12 @@
 __pycache__/
 *.pyc
+*.pt
+*.npz.tmp
+/checkpoints/
+/data/
+/outputs/
+/banks/
+/wandb/
+/_scratch/
+/_trash/
 .DS_Store
