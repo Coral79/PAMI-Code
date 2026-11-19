@@ -3,6 +3,7 @@
 <p align="center">
   <a href="https://coral79.github.io/pami/"><b>[🌐 Project Page]</b></a>
   <a href="https://arxiv.org/abs/2609.38466"><b>[📄 Paper]</b></a>
+  <a href="https://huggingface.co/Coral79/pami"><b>[🤗 Models]</b></a>
 </p>
 
 <p align="center">
@@ -146,10 +147,26 @@ Folders can live elsewhere: set `INTERACT_ROOT` (InterAct's `data/`), `LIGHT_ROO
 
 ## 📥 Pre-trained Models
 
-Download from **[Google Drive](https://drive.google.com/drive/folders/12B0QkcbrgKtKX5JdECtpk7LpBfVKdSzd?usp=sharing)** and unpack in the repository root.
+The checkpoints are hosted on [Hugging Face](https://huggingface.co/Coral79/pami). Download them into `checkpoints/`:
 
-| Archive | Size | Contents |
+```bash
+pip install huggingface_hub
+python -c "
+from huggingface_hub import snapshot_download
+snapshot_download('Coral79/pami', local_dir='checkpoints')
+"
+```
+
+| File | Size | Used for |
 |---|---|---|
+| `pamigen_ema_only.pt`, `pamivae_contact_decoder_only.pt`, `pamirefiner.pt` | 0.44 GB | inference |
+| `pamivae.pt` | 3.0 GB | encoding the latents |
+| `stats/` | — | normalisation statistics of the released models |
+| `pamigen.pt`, `pamivae_contact.pt` | 3.9 GB | training only |
+
+Mirror: [Google Drive](https://drive.google.com/drive/folders/12B0QkcbrgKtKX5JdECtpk7LpBfVKdSzd?usp=sharing) (`tar -xf` the archives in the repository root).
+
+---|---|---|
 | `pami_checkpoints_inference.tar` | 3.5 GB | PamiGen, PamiVAE and PamiRefiner for inference, with their normalisation statistics |
 | `pami_checkpoints_training.tar` | 3.9 GB | full PamiGen and contact-tuned PamiVAE checkpoints, only needed for training |
 
